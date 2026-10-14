@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Special Letter for Kayla - Mini Zoo Edition 🦁🦜</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&family=Caveat:wght@600&family=Poppins:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      /* Latar belakang nuansa kebun binatang / alam asri */
+      background: linear-gradient(135deg, #a8ff78 0%, #78ffd6 50%, #43e97b 100%);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      color: #2c4a3e;
+      position: relative;
+    }
+
+    /* Animasi Hewan Berjalan di Bawah & Burung Terbang */
+    .zoo-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    /* Burung Berterbangan */
+    .bird {
+      position: absolute;
+      font-size: 24px;
+      animation: fly linear infinite;
+      opacity: 0.85;
+    }
+
+    @keyframes fly {
+      0% {
+        transform: translate(-50px, 100px) scale(0.8);
+      }
+      50% {
+        transform: translate(50vw, 30px) scale(1);
+      }
+      100% {
+        transform: translate(105vw, 120px) scale(0.9);
+      }
+    }
+
+    /* Hewan Berjalan */
+    .walking-animal {
+      position: absolute;
+      bottom: 20px;
+      font-size: 38px;
+      animation: walk linear infinite;
+    }
+
+    @keyframes walk {
+      0% {
+        left: -80px;
+        transform: scaleX(1);
+      }
+      49% {
+        transform: scaleX(1);
+      }
+      50% {
+        left: 105vw;
+        transform: scaleX(-1);
+      }
+      99% {
+        transform: scaleX(-1);
+      }
+      100% {
+        left: -80px;
+        transform: scaleX(1);
+      }
+    }
+
+    /* Kartu Surat Utama */
+    .card-container {
+      position: relative;
+      z-index: 10;
+      width: 90%;
+      max-width: 480px;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 3px solid rgba(120, 255, 214, 0.8);
+      border-radius: 25px;
+      padding: 25px 22px;
+      box-shadow: 0 15px 35px rgba(44, 74, 62, 0.25), 0 0 20px rgba(255, 255, 255, 0.6);
+      text-align: center;
+      transition: all 0.4s ease;
+    }
+
+    .header-title {
+      font-family: 'Fredoka', cursive;
+      font-size: 2.3rem;
+      color: #1b4d3e;
+      margin-bottom: 5px;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    }
+
+    .page-indicator {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #3b7a57;
+      margin-bottom: 15px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .content-box {
+      min-height: 220px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      padding: 0 5px;
+      animation: fadeIn 0.6s ease;
+    }
+
+    .letter-text {
+      font-family: 'Caveat', cursive;
+      font-size: 1.6rem;
+      line-height: 1.5;
+      color: #2d4a3e;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    .photo-frame {
+      width: 100%;
+      max-height: 190px;
+      object-fit: cover;
+      border-radius: 15px;
+      border: 4px solid #ffffff;
+      box-shadow: 0 8px 20px rgba(44, 74, 62, 0.2);
+      margin-bottom: 12px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Tombol Navigasi */
+    .btn-group {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    button {
+      flex: 1;
+      padding: 12px 18px;
+      border: none;
+      border-radius: 25px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(44, 74, 62, 0.2);
+    }
+
+    .btn-next {
+      background: linear-gradient(135deg, #43e97b, #38f9d7);
+      color: #1b4d3e;
+    }
+
+    .btn-next:hover {
+      background: linear-gradient(135deg, #2ecc71, #26af94);
+      transform: translateY(-2px);
+      color: #ffffff;
+    }
+
+    .btn-prev {
+      background: rgba(255, 255, 255, 0.8);
+      color: #3b7a57;
+      border: 1px solid rgba(67, 233, 123, 0.4);
+    }
+
+    .btn-prev:hover {
+      background: #ffffff;
+      color: #1b4d3e;
+    }
+
+    button:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+      transform: none !important;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Animasi Hewan & Burung Mini Zoo -->
+  <div class="zoo-container" id="zooContainer"></div>
+
+  <!-- Kartu Surat -->
+  <div class="card-container">
+    <div class="header-title">Mini Zoo Kayla 🦁🌿</div>
+    <div class="page-indicator" id="pageIndicator">HALAMAN 1 DARI 10</div>
+    
+    <div class="content-box" id="letterContent"></div>
+
+    <div class="btn-group">
+      <button class="btn-prev" id="prevBtn" onclick="prevPage()" disabled>Kembali</button>
+      <button class="btn-next" id="nextBtn" onclick="nextPage()">Lanjut 🌿</button>
+    </div>
+  </div>
+
+  <script>
+    const pages = [
+      {
+        text: "Assalamualaikum Kaylaa🤗🤗!!.. Ini aku buat khusus buatmuu😊😊.. dibacaa yaaa Kayy..",
+        img: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        text: "Aloo udahh masuk yaa, okee… udahh gak sabar yaa baca isi suratt darii Ikeee hahayyy🤪🤪…, oke deh silahkan Kayla tekan tombol lanjutt yaa…. selamat membacaa😘😘…",
+        img: null
+      },
+      {
+        text: "Kaylaaa…, disini Ike yang pertama mau bilang maaf ke Kayla… soalnya Ike masih belum bisa jadi teman yang baik dan Ike juga gak selalu bisa ngertiin perasaan Kayla.. ya kurang peka lah istilahnya, mwehehe 🤭🤭",
+        img: null
+      },
+      {
+        text: "Dirimu tau enggak??.., kalo Ike ngelakuin kesalahan dan yang kamu kira aku tuh biasa aja gak punya rasa bersalah sama sekali.., tebakanmu salah banget! Aku tuh mikir aku juga manusiaa yang lucu kan emoettszz xixi.., mau berusaha takut kamunya tambah marah…, mencobanya ehh beneran makin marah.., yaudah aku milih diem ajhaaa yak kan yaa.., hehe 🙃",
+        img: "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        text: "Emm iya dehh aku akui aku tuh orangnya nyebelin iyaa kan? Hadehh yaudaa lah yaa, kamu juga nyebelinn tauu enggak sihh sama aja kayak aku…, udahh yaa saling ngaca ajhaa kita berdua itu kalo lagi brantem itu nyebelinnya minta ampun dehh.. #pusying 🤯🤯",
+        img: null
+      },
+      {
+        text: "Ayo kita berdua saling memahami diri kita masing-masing, saling menghargai pendapat, jangan gegabah yaa.. supaya diantara kita berdua tidak menimbulkan pertengkaran lagi… 😘😘",
+        img: null
+      },
+      {
+        text: "Mari kita berdua saling memperbaiki diri masing-masing yaaa.., supaya pertemanan kita selaluuu Bahagia.. 😇",
+        img: null
+      },
+      {
+        text: "Tau enggak sihh Kayy dirimu ituu jujurlyy nyebelennn banget kalo lagi gak mood 😭😭 kadang bikin emosi, kadang bikin ketawa, tapi kaloo kamu enggak ada malah berasa ada yang kurang nii jujur yaa. Dasar manusia aneh..,",
+        img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        text: "Kaylaa emoett.., jangan pernah berubah yaa.., Tetap jadi orang baikk, tetap jadi temannya Ike. Oiyaa Kayy, jangan sombong yaa kalo nanti kita udah sukses, ya. Ingat, kita pernah jadi dua manusia nggak jelas yang ketawa karena hal aneh. Kalo kamu lupa aku, awas aja, aku bakal datang di mimpimu buat nagih pertemanan 😭🤣",
+        img: null
+      },
+      {
+        text: "Kalo suatu hari nanti kita udah jarang ketemu lagii, jangan lupaa sama aku yaa Kayy.., aku mungkin bukan teman yang paling sempurna, tapi aku harap aku pernah jadi salah satu alasan untuk tersenyum, walaupun seringnya aku juga alasan kamu pengin mukul bantal, xixixi.. 🤣…. makasih udah jadi teman terbaiknya Ike selama ini Kayla… ❤️✨",
+        img: "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=600&q=80"
+      }
+    ];
+
+    let currentPage = 0;
+    const letterContent = document.getElementById('letterContent');
+    const pageIndicator = document.getElementById('pageIndicator');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+
+    function updateCard() {
+      letterContent.style.animation = 'none';
+      letterContent.offsetHeight;
+      letterContent.style.animation = 'fadeIn 0.6s ease';
+
+      const data = pages[currentPage];
+      let htmlOutput = '';
+
+      if (data.img) {
+        htmlOutput += `<img src="${data.img}" alt="Foto Kebersamaan" class="photo-frame">`;
+      }
+      htmlOutput += `<div class="letter-text">${data.text}</div>`;
+
+      letterContent.innerHTML = htmlOutput;
+      pageIndicator.innerText = `HALAMAN ${currentPage + 1} DARI ${pages.length}`;
+      prevBtn.disabled = currentPage === 0;
+      nextBtn.innerText = (currentPage === pages.length - 1) ? "Selesai 💖" : "Lanjut 🌿";
+    }
+
+    function nextPage() {
+      if (currentPage < pages.length - 1) {
+        currentPage++;
+        updateCard();
+      } else {
+        alert("Terima kasih sudah membaca surat Mini Zoo ini sampai habis, Kayla! Sayang kamu selalu 💕");
+      }
+    }
+
+    function prevPage() {
+      if (currentPage > 0) {
+        currentPage--;
+        updateCard();
+      }
+    }
+
+    // Generator Hewan Berjalan & Burung Terbang
+    function createMiniZoo() {
+      const container = document.getElementById('zooContainer');
+      const birdsList = ['🕊️', '🦜', '🦢', '🦅'];
+      const animalsList = ['🦒', '🐘', '🐅', '🦓', '🐇', '🦘'];
+
+      // Munculkan Burung Terbang
+      for (let i = 0; i < 6; i++) {
+        const bird = document.createElement('div');
+        bird.classList.add('bird');
+        bird.innerText = birdsList[Math.floor(Math.random() * birdsList.length)];
+        bird.style.top = `${Math.random() * 40}%`;
+        bird.style.animationDuration = `${Math.random() * 8 + 8}s`;
+        bird.style.animationDelay = `${Math.random() * 5}s`;
+        container.appendChild(bird);
+      }
+
+      // Munculkan Hewan Berjalan di Bawah
+      for (let i = 0; i < 5; i++) {
+        const animal = document.createElement('div');
+        animal.classList.add('walking-animal');
+        animal.innerText = animalsList[Math.floor(Math.random() * animalsList.length)];
+        animal.style.animationDuration = `${Math.random() * 10 + 12}s`;
+        animal.style.animationDelay = `${Math.random() * 5}s`;
+        container.appendChild(animal);
+      }
+    }
+
+    createMiniZoo();
+    updateCard();
+  </script>
+</body>
+</html>

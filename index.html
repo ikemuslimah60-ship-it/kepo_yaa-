@@ -14,7 +14,6 @@
 
     body {
       font-family: 'Poppins', sans-serif;
-      /* Latar belakang nuansa kebun binatang / alam asri */
       background: linear-gradient(135deg, #a8ff78 0%, #78ffd6 50%, #43e97b 100%);
       min-height: 100vh;
       display: flex;
@@ -37,37 +36,38 @@
       overflow: hidden;
     }
 
-    /* Burung Berterbangan */
+    /* Burung Terbang (Ukuran diperbesar) */
     .bird {
       position: absolute;
-      font-size: 24px;
+      font-size: 42px;
       animation: fly linear infinite;
-      opacity: 0.85;
+      opacity: 0.9;
     }
 
     @keyframes fly {
       0% {
-        transform: translate(-50px, 100px) scale(0.8);
+        transform: translate(-60px, 80px) scale(0.9);
       }
       50% {
-        transform: translate(50vw, 30px) scale(1);
+        transform: translate(50vw, 20px) scale(1.1);
       }
       100% {
-        transform: translate(105vw, 120px) scale(0.9);
+        transform: translate(105vw, 100px) scale(1);
       }
     }
 
-    /* Hewan Berjalan */
+    /* Hewan Berjalan (Ukuran diperbesar) */
     .walking-animal {
       position: absolute;
-      bottom: 20px;
-      font-size: 38px;
+      bottom: 15px;
+      font-size: 65px; /* Diperbesar agar lebih menonjol */
       animation: walk linear infinite;
+      filter: drop-shadow(0 4px 6px rgba(0,0,0,0.15));
     }
 
     @keyframes walk {
       0% {
-        left: -80px;
+        left: -100px;
         transform: scaleX(1);
       }
       49% {
@@ -81,7 +81,7 @@
         transform: scaleX(-1);
       }
       100% {
-        left: -80px;
+        left: -100px;
         transform: scaleX(1);
       }
     }
@@ -92,12 +92,12 @@
       z-index: 10;
       width: 90%;
       max-width: 480px;
-      background: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 0.92);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       border: 3px solid rgba(120, 255, 214, 0.8);
       border-radius: 25px;
-      padding: 25px 22px;
+      padding: 30px 22px;
       box-shadow: 0 15px 35px rgba(44, 74, 62, 0.25), 0 0 20px rgba(255, 255, 255, 0.6);
       text-align: center;
       transition: all 0.4s ease;
@@ -115,39 +115,29 @@
       font-size: 0.8rem;
       font-weight: 600;
       color: #3b7a57;
-      margin-bottom: 15px;
+      margin-bottom: 20px;
       letter-spacing: 2px;
       text-transform: uppercase;
     }
 
     .content-box {
-      min-height: 220px;
+      min-height: 240px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      margin-bottom: 20px;
+      margin-bottom: 25px;
       padding: 0 5px;
       animation: fadeIn 0.6s ease;
     }
 
     .letter-text {
       font-family: 'Caveat', cursive;
-      font-size: 1.6rem;
+      font-size: 1.7rem;
       line-height: 1.5;
       color: #2d4a3e;
       text-align: center;
       font-weight: 600;
-    }
-
-    .photo-frame {
-      width: 100%;
-      max-height: 190px;
-      object-fit: cover;
-      border-radius: 15px;
-      border: 4px solid #ffffff;
-      box-shadow: 0 8px 20px rgba(44, 74, 62, 0.2);
-      margin-bottom: 12px;
     }
 
     @keyframes fadeIn {
@@ -225,44 +215,34 @@
   <script>
     const pages = [
       {
-        text: "Assalamualaikum Kaylaa🤗🤗!!.. Ini aku buat khusus buatmuu😊😊.. dibacaa yaaa Kayy..",
-        img: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=600&q=80"
+        text: "Assalamualaikum Kaylaa🤗🤗!!.. Ini aku buat khusus buatmuu😊😊.. dibacaa yaaa Kayy.."
       },
       {
-        text: "Aloo udahh masuk yaa, okee… udahh gak sabar yaa baca isi suratt darii Ikeee hahayyy🤪🤪…, oke deh silahkan Kayla tekan tombol lanjutt yaa…. selamat membacaa😘😘…",
-        img: null
+        text: "Aloo udahh masuk yaa, okee… udahh gak sabar yaa baca isi suratt darii Ikeee hahayyy🤪🤪…, oke deh silahkan Kayla tekan tombol lanjutt yaa…. selamat membacaa😘😘…"
       },
       {
-        text: "Kaylaaa…, disini Ike yang pertama mau bilang maaf ke Kayla… soalnya Ike masih belum bisa jadi teman yang baik dan Ike juga gak selalu bisa ngertiin perasaan Kayla.. ya kurang peka lah istilahnya, mwehehe 🤭🤭",
-        img: null
+        text: "Kaylaaa…, disini Ike yang pertama mau bilang maaf ke Kayla… soalnya Ike masih belum bisa jadi teman yang baik dan Ike juga gak selalu bisa ngertiin perasaan Kayla.. ya kurang peka lah istilahnya, mwehehe 🤭🤭"
       },
       {
-        text: "Dirimu tau enggak??.., kalo Ike ngelakuin kesalahan dan yang kamu kira aku tuh biasa aja gak punya rasa bersalah sama sekali.., tebakanmu salah banget! Aku tuh mikir aku juga manusiaa yang lucu kan emoettszz xixi.., mau berusaha takut kamunya tambah marah…, mencobanya ehh beneran makin marah.., yaudah aku milih diem ajhaaa yak kan yaa.., hehe 🙃",
-        img: "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=600&q=80"
+        text: "Dirimu tau enggak??.., kalo Ike ngelakuin kesalahan dan yang kamu kira aku tuh biasa aja gak punya rasa bersalah sama sekali.., tebakanmu salah banget! Aku tuh mikir aku juga manusiaa yang lucu kan emoettszz xixi.., mau berusaha takut kamunya tambah marah…, mencobanya ehh beneran makin marah.., yaudah aku milih diem ajhaaa yak kan yaa.., hehe 🙃"
       },
       {
-        text: "Emm iya dehh aku akui aku tuh orangnya nyebelin iyaa kan? Hadehh yaudaa lah yaa, kamu juga nyebelinn tauu enggak sihh sama aja kayak aku…, udahh yaa saling ngaca ajhaa kita berdua itu kalo lagi brantem itu nyebelinnya minta ampun dehh.. #pusying 🤯🤯",
-        img: null
+        text: "Emm iya dehh aku akui aku tuh orangnya nyebelin iyaa kan? Hadehh yaudaa lah yaa, kamu juga nyebelinn tauu enggak sihh sama aja kayak aku…, udahh yaa saling ngaca ajhaa kita berdua itu kalo lagi brantem itu nyebelinnya minta ampun dehh.. #pusying 🤯🤯"
       },
       {
-        text: "Ayo kita berdua saling memahami diri kita masing-masing, saling menghargai pendapat, jangan gegabah yaa.. supaya diantara kita berdua tidak menimbulkan pertengkaran lagi… 😘😘",
-        img: null
+        text: "Ayo kita berdua saling memahami diri kita masing-masing, saling menghargai pendapat, jangan gegabah yaa.. supaya diantara kita berdua tidak menimbulkan pertengkaran lagi… 😘😘"
       },
       {
-        text: "Mari kita berdua saling memperbaiki diri masing-masing yaaa.., supaya pertemanan kita selaluuu Bahagia.. 😇",
-        img: null
+        text: "Mari kita berdua saling memperbaiki diri masing-masing yaaa.., supaya pertemanan kita selaluuu Bahagia.. 😇"
       },
       {
-        text: "Tau enggak sihh Kayy dirimu ituu jujurlyy nyebelennn banget kalo lagi gak mood 😭😭 kadang bikin emosi, kadang bikin ketawa, tapi kaloo kamu enggak ada malah berasa ada yang kurang nii jujur yaa. Dasar manusia aneh..,",
-        img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80"
+        text: "Tau enggak sihh Kayy dirimu ituu jujurlyy nyebelennn banget kalo lagi gak mood 😭😭 kadang bikin emosi, kadang bikin ketawa, tapi kaloo kamu enggak ada malah berasa ada yang kurang nii jujur yaa. Dasar manusia aneh..,"
       },
       {
-        text: "Kaylaa emoett.., jangan pernah berubah yaa.., Tetap jadi orang baikk, tetap jadi temannya Ike. Oiyaa Kayy, jangan sombong yaa kalo nanti kita udah sukses, ya. Ingat, kita pernah jadi dua manusia nggak jelas yang ketawa karena hal aneh. Kalo kamu lupa aku, awas aja, aku bakal datang di mimpimu buat nagih pertemanan 😭🤣",
-        img: null
+        text: "Kaylaa emoett.., jangan pernah berubah yaa.., Tetap jadi orang baikk, tetap jadi temannya Ike. Oiyaa Kayy, jangan sombong yaa kalo nanti kita udah sukses, ya. Ingat, kita pernah jadi dua manusia nggak jelas yang ketawa karena hal aneh. Kalo kamu lupa aku, awas aja, aku bakal datang di mimpimu buat nagih pertemanan 😭🤣"
       },
       {
-        text: "Kalo suatu hari nanti kita udah jarang ketemu lagii, jangan lupaa sama aku yaa Kayy.., aku mungkin bukan teman yang paling sempurna, tapi aku harap aku pernah jadi salah satu alasan untuk tersenyum, walaupun seringnya aku juga alasan kamu pengin mukul bantal, xixixi.. 🤣…. makasih udah jadi teman terbaiknya Ike selama ini Kayla… ❤️✨",
-        img: "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=600&q=80"
+        text: "Kalo suatu hari nanti kita udah jarang ketemu lagii, jangan lupaa sama aku yaa Kayy.., aku mungkin bukan teman yang paling sempurna, tapi aku harap aku pernah jadi salah satu alasan untuk tersenyum, walaupun seringnya aku juga alasan kamu pengin mukul bantal, xixixi.. 🤣…. makasih udah jadi teman terbaiknya Ike selama ini Kayla… ❤️✨"
       }
     ];
 
@@ -278,14 +258,8 @@
       letterContent.style.animation = 'fadeIn 0.6s ease';
 
       const data = pages[currentPage];
-      let htmlOutput = '';
+      letterContent.innerHTML = `<div class="letter-text">${data.text}</div>`;
 
-      if (data.img) {
-        htmlOutput += `<img src="${data.img}" alt="Foto Kebersamaan" class="photo-frame">`;
-      }
-      htmlOutput += `<div class="letter-text">${data.text}</div>`;
-
-      letterContent.innerHTML = htmlOutput;
       pageIndicator.innerText = `HALAMAN ${currentPage + 1} DARI ${pages.length}`;
       prevBtn.disabled = currentPage === 0;
       nextBtn.innerText = (currentPage === pages.length - 1) ? "Selesai 💖" : "Lanjut 🌿";
@@ -307,29 +281,26 @@
       }
     }
 
-    // Generator Hewan Berjalan & Burung Terbang
     function createMiniZoo() {
       const container = document.getElementById('zooContainer');
       const birdsList = ['🕊️', '🦜', '🦢', '🦅'];
-      const animalsList = ['🦒', '🐘', '🐅', '🦓', '🐇', '🦘'];
+      const animalsList = ['🦒', '🐘', '🐅', 'hh', '🐇', '🦘', '🦛', '🦁'];
 
-      // Munculkan Burung Terbang
-      for (let i = 0; i < 6; i++) {
+      for (let i = 0; i < 5; i++) {
         const bird = document.createElement('div');
         bird.classList.add('bird');
         bird.innerText = birdsList[Math.floor(Math.random() * birdsList.length)];
-        bird.style.top = `${Math.random() * 40}%`;
-        bird.style.animationDuration = `${Math.random() * 8 + 8}s`;
-        bird.style.animationDelay = `${Math.random() * 5}s`;
+        bird.style.top = `${Math.random() * 35}%`;
+        bird.style.animationDuration = `${Math.random() * 7 + 7}s`;
+        bird.style.animationDelay = `${Math.random() * 4}s`;
         container.appendChild(bird);
       }
 
-      // Munculkan Hewan Berjalan di Bawah
-      for (let i = 0; i < 5; i++) {
+      for (let i = 0; i < 4; i++) {
         const animal = document.createElement('div');
         animal.classList.add('walking-animal');
         animal.innerText = animalsList[Math.floor(Math.random() * animalsList.length)];
-        animal.style.animationDuration = `${Math.random() * 10 + 12}s`;
+        animal.style.animationDuration = `${Math.random() * 10 + 10}s`;
         animal.style.animationDelay = `${Math.random() * 5}s`;
         container.appendChild(animal);
       }
